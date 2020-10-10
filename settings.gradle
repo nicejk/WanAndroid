@@ -1,2 +1,4 @@
+include ':verticaltablayout'
+include ':multiple-status-view'
 include ':app'
 rootProject.name = "WanAndroid"
