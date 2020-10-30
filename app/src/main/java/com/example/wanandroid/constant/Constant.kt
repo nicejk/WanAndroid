@@ -8,4 +8,6 @@ package com.example.wanandroid.constant
  */
 object Constant {
     const val BASE_URL = "https://www.wanandroid.com/"
+    const val LOGIN_KEY = "login"
+    const val HAS_NETWORK_KEY = "has_network"
 }
