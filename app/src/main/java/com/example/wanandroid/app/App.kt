@@ -9,6 +9,7 @@ import android.util.Log
 import androidx.appcompat.app.AppCompatDelegate
 import com.example.wanandroid.BuildConfig
 import com.example.wanandroid.R
+import com.example.wanandroid.mvp.model.bean.UserInfoBody
 import com.example.wanandroid.utils.DisplayManager
 import com.example.wanandroid.utils.SettingUtil
 import com.orhanobut.logger.AndroidLogAdapter
@@ -43,6 +44,9 @@ class App : Application() {
             val app = context.applicationContext as App
             return app.refWatcher
         }
+
+        // 用户信息
+        var userInfo: UserInfoBody? = null
     }
 
     override fun onCreate() {

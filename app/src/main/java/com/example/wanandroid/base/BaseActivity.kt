@@ -2,12 +2,16 @@ package com.example.wanandroid.base
 
 import android.content.Context
 import android.content.IntentFilter
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
+import android.os.Build
 import android.os.Bundle
 import android.view.Gravity
 import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
+import com.afollestad.materialdialogs.color.CircleView
 import com.example.multiple_status_view.MultipleStatusView
 import com.example.wanandroid.R
 import com.example.wanandroid.app.App
@@ -16,6 +20,7 @@ import com.example.wanandroid.event.NetworkChangeEvent
 import com.example.wanandroid.receiver.NetworkChangeReceiver
 import com.example.wanandroid.utils.Preference
 import com.example.wanandroid.utils.SettingUtil
+import com.example.wanandroid.utils.StatusBarUtil
 import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
 import org.greenrobot.eventbus.ThreadMode
@@ -116,7 +121,27 @@ abstract class BaseActivity : AppCompatActivity() {
         mNetworkChangeReceiver = NetworkChangeReceiver()
         registerReceiver(mNetworkChangeReceiver, filter)
         super.onResume()
-//        initColor()
+        initColor()
+    }
+
+    open fun initColor() {
+        mThemeColor = if (!SettingUtil.getIsNightMode()) {
+            SettingUtil.getColor()
+        } else {
+            resources.getColor(R.color.colorPrimary)
+        }
+        StatusBarUtil.setColor(this, mThemeColor, 0)
+        if (this.supportActionBar != null) {
+            this.supportActionBar?.setBackgroundDrawable(ColorDrawable(mThemeColor))
+        }
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            if (SettingUtil.getNavBar()) {
+                window.navigationBarColor = CircleView.shiftColorDown(mThemeColor)
+            } else {
+                window.navigationBarColor = Color.BLACK
+            }
+        }
     }
 
     private fun initListener() {

@@ -13,7 +13,7 @@ import io.reactivex.disposables.Disposable
  * @Author: haishan
  * @CreateDate: 2020/10/14 3:54 PM
  */
-class BaseModel : IModel, LifecycleObserver {
+abstract class BaseModel : IModel, LifecycleObserver {
     private var mCompositeDisposable: CompositeDisposable? = null
 
     override fun addDisposable(disposable: Disposable?) {

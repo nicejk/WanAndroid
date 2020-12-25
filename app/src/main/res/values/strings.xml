@@ -176,5 +176,8 @@
     <string name="share_article_delete">已删除分享的文章</string>
     <string name="audited">待审核</string>
     <string name="submit_ing">正在提交...</string>
+    <string name="user_login_title">用户登录</string>
+    <string name="please_wan_account_tip">请使用WanAndroid账号登录！</string>
+    <string name="noaccount_go_register">没有账号？去注册</string>
 
 </resources>
