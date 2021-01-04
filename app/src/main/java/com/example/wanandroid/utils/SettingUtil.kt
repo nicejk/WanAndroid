@@ -17,7 +17,7 @@ object SettingUtil {
     /**
      * 获取是否开启无图模式
      */
-    fun getIsPhotoMode(): Boolean {
+    fun getIsNoPhotoMode(): Boolean {
         return setting.getBoolean("switch_noPhotoMode", false)
     }
 
@@ -97,5 +97,12 @@ object SettingUtil {
 
     fun setDayStartMinute(dayStartMinute: String) {
         setting.edit().putString("day_startMinute", dayStartMinute).apply()
+    }
+
+    /**
+     * 获取是否显示首页置顶文章，true: 不显示 false: 显示
+     */
+    fun getIsShowTopArticle(): Boolean {
+        return setting.getBoolean("switch_show_top", false)
     }
 }

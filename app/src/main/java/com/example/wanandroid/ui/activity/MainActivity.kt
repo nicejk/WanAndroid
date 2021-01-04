@@ -252,7 +252,7 @@ class MainActivity : BaseMvpActivity<MainContract.View, MainContract.Presenter>(
         when (mIndex) {
             // 首页
             FRAGMENT_HOME -> {
-
+                mHomeFragment?.scrollToTop()
             }
             // 广场
             FRAGMENT_SQUARE -> {

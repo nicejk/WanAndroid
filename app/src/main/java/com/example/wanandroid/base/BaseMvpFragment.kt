@@ -9,6 +9,7 @@ import com.example.wanandroid.ext.showToast
  * @Author: haishan
  * @CreateDate: 2020/10/28 3:41 PM
  */
+@Suppress("UNCHECKED_CAST")
 abstract class BaseMvpFragment<in V : IView, P : IPresenter<V>> : BaseFragment(), IView {
 
     protected var mPresenter: P? = null
@@ -20,8 +21,8 @@ abstract class BaseMvpFragment<in V : IView, P : IPresenter<V>> : BaseFragment()
         mPresenter?.attachView(this as V)
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
+    override fun onDestroyView() {
+        super.onDestroyView()
         mPresenter?.detachView()
         this.mPresenter = null
     }

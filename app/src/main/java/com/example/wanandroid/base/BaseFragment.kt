@@ -24,7 +24,7 @@ import org.greenrobot.eventbus.ThreadMode
 abstract class BaseFragment : Fragment() {
     protected var isLogin: Boolean by Preference(Constant.LOGIN_KEY, false)
 
-    protected var hasNetwork: Boolean by Preference(Constant.HAS_NETWORK_KEY, false)
+    protected var hasNetwork: Boolean by Preference(Constant.HAS_NETWORK_KEY, true)
 
     /**
      * 视图是否加载完毕
